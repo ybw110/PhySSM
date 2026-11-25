@@ -1,0 +1,106 @@
+{
+  "project_name": "Paper1_PhySSM_Structural_Dynamics",
+  "lookback_minutes": 360,
+  "pre_window_eq_minutes": 15,
+  "primary_seeds": [
+    42,
+    1024,
+    2025,
+    3407,
+    7777
+  ],
+  "rolling_and_dynamic_seeds": [
+    42,
+    1024,
+    2025
+  ],
+  "lookahead_horizons_min": [
+    10,
+    30,
+    60
+  ],
+  "batch_size": 256,
+  "eval_batch_size": 512,
+  "max_epochs": 45,
+  "patience": 9,
+  "learning_rate": 0.0012,
+  "weight_decay": 0.0001,
+  "grad_clip_norm": 2.0,
+  "feature_groups": {
+    "thermal_mean_aux": [
+      "temp_mean",
+      "hum_mean",
+      "press_mean"
+    ],
+    "thermal_stations": [
+      "temp_06",
+      "temp_11",
+      "temp_13",
+      "temp_20"
+    ],
+    "thermal_spatial_grad": [
+      "temp_grad_06",
+      "temp_grad_11",
+      "temp_grad_13",
+      "temp_grad_20",
+      "temp_spatial_range"
+    ],
+    "wind_forcing": [
+      "wind_12_14_speed",
+      "wind_speed_mean24",
+      "wind_speed_p90_24",
+      "wind_q_total_Pa",
+      "wind_q_longitudinal_Pa",
+      "wind_q_lateral_Pa"
+    ],
+    "actuation_and_attitude": [
+      "az1_current_mean",
+      "az2_current_mean",
+      "el1_current_mean",
+      "el2_current_mean",
+      "motor_current_abs_max",
+      "motor_active_flag",
+      "el_sin",
+      "el_cos",
+      "az_sin",
+      "az_cos",
+      "el_range_deg",
+      "mode30_frac",
+      "mode34_frac"
+    ],
+    "quality_masks": [
+      "wind_dir_quality_mask"
+    ]
+  },
+  "targets_2026_15ch": [
+    "disp_49_01",
+    "disp_49_02",
+    "strain_49_03",
+    "strain_49_04",
+    "strain_49_05",
+    "strain_49_06",
+    "strain_49_07",
+    "strain_49_08",
+    "strain_49_09",
+    "strain_49_10",
+    "strain_49_11",
+    "strain_49_12",
+    "strain_49_13",
+    "strain_49_14",
+    "strain_49_15"
+  ],
+  "targets_2025_2ch": [
+    "disp_49_01",
+    "disp_49_02"
+  ],
+  "models_order": [
+    "Composite-GPR",
+    "N4SID",
+    "VMD-BiLSTM",
+    "Causal-Dilated TCN",
+    "ST-GAT",
+    "TimeXer",
+    "TimePro",
+    "PhySSM"
+  ]
+}

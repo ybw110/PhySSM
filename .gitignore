@@ -1,0 +1,36 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Strictly exclude datasets, model weights, and generated experiment artifacts
+data/
+raw_data/
+checkpoints/
+outputs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.csv
+*.parquet
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.xlsx
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
